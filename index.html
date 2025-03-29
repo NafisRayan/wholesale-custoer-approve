@@ -4,149 +4,155 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Wholesale Customer Approval</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest"></script>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <div class="app">
         <nav class="navbar">
             <div class="logo">
-                <i data-lucide="box" class="logo-icon"></i>
+                <img src="assets/logo.svg" alt="Logo">
             </div>
-            <div class="content">
-                <div class="list">
-                    <button class="nav-button active">
-                        <i data-lucide="flame"></i>
+            <div class="nav-content">
+                <div class="nav-list">
+                    <button class="nav-btn active">
+                        <img src="assets/flame.svg" alt="Trending">
                         <span>Trending</span>
                     </button>
-                    <button class="nav-button">
-                        <i data-lucide="list-check"></i>
+                    <button class="nav-btn">
+                        <img src="assets/list-check.svg" alt="New Listing">
                         <span>New Listing</span>
                     </button>
-                    <button class="nav-button">
-                        <i data-lucide="chevrons-down"></i>
+                    <button class="nav-btn">
+                        <img src="assets/chevrons-down.svg" alt="Price Lowered">
                         <span>Price Lowered</span>
                     </button>
-                    <button class="nav-button">
-                        <i data-lucide="save"></i>
+                    <button class="nav-btn">
+                        <img src="assets/save.svg" alt="Watchlist">
                         <span>Watchlist</span>
                     </button>
-                    <button class="nav-button">
-                        <i data-lucide="list-checks"></i>
+                    <button class="nav-btn">
+                        <img src="assets/list-checks.svg" alt="Sold">
                         <span>Sold</span>
                     </button>
-                    <button class="nav-button">
-                        <i data-lucide="file-clock"></i>
+                    <button class="nav-btn">
+                        <img src="assets/file-clock.svg" alt="Order History">
                         <span>Order History</span>
                     </button>
                 </div>
                 <div class="search">
                     <button class="filter-btn">
-                        <i data-lucide="funnel"></i>
+                        <img src="assets/funnel.svg" alt="Filter">
                     </button>
-                    <div class="search-box">
-                        <i data-lucide="search"></i>
+                    <div class="search-input">
+                        <img src="assets/search.svg" alt="Search">
                         <input type="text" placeholder="Search with name, model or UPC">
                     </div>
                 </div>
             </div>
         </nav>
-        
-        <div class="content">
-            <!-- Pending Card -->
-            <div class="customer-card">
-                <div class="inner">
-                    <div class="info-section">
-                        <div class="status-badge pending">
-                            <i data-lucide="circle-dashed"></i>
-                            <span>Pending</span>
-                        </div>
-                        <div class="customer-info">
-                            <h2>Rahique</h2>
-                            <div class="details">
-                                <p>Nerd Lab</p>
-                                <p>nerdlab@gmail.com</p>
-                            </div>
-                            <div class="document-list">
-                                <button class="document-pill">Document One</button>
-                                <button class="document-pill">Document Two</button>
-                                <button class="document-pill">Document Three</button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="action-btn approve">
-                            <i data-lucide="check"></i>
-                        </button>
-                        <button class="action-btn reject">
-                            <i data-lucide="ban"></i>
-                        </button>
-                    </div>
-                </div>
-            </div>
 
-            <!-- Approved Card -->
-            <div class="customer-card">
-                <div class="inner">
-                    <div class="info-section">
-                        <div class="status-badge approved">
-                            <i data-lucide="thumbs-up"></i>
-                            <span>Approved</span>
-                        </div>
-                        <div class="customer-info">
-                            <h2>Rahique</h2>
-                            <div class="details">
-                                <p>Nerd Lab</p>
-                                <p>nerdlab@gmail.com</p>
+        <main class="content">
+            <div class="approval-cards">
+                <!-- Pending Approval Card -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div class="status pending">
+                                <div class="status-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M12 22c5.523 0 10-4.477 10-10S17.523 2 12 2 2 6.477 2 12s4.477 10 10 10Z"/></svg>
+                                </div>
+                                <span>Pending</span>
                             </div>
-                            <div class="document-list">
-                                <button class="document-pill">Document One</button>
-                                <button class="document-pill">Document Two</button>
-                                <button class="document-pill">Document Three</button>
+                            <div class="user-info">
+                                <h3>Rahique</h3>
+                                <div class="business-info">
+                                    <span>Nerd Lab</span>
+                                    <span>nerdlab@gmail.com</span>
+                                </div>
+                                <div class="documents">
+                                    <span class="doc-tag">Document One</span>
+                                    <span class="doc-tag">Document Two</span>
+                                    <span class="doc-tag">Document Three</span>
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="action-buttons">
-                        <button class="action-btn delete">
-                            <i data-lucide="trash-2"></i>
-                        </button>
+                        <div class="card-actions">
+                            <button class="action-btn approve">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M20 6 9 17l-5-5"/></svg>
+                            </button>
+                            <button class="action-btn deny">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="10"/><path d="m4.93 4.93 14.14 14.14"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
-            </div>
 
-            <!-- Denied Card -->
-            <div class="customer-card">
-                <div class="inner">
-                    <div class="info-section">
-                        <div class="status-badge denied">
-                            <i data-lucide="thumbs-down"></i>
-                            <span>Denied</span>
+                <!-- Approved Card -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div class="status approved">
+                                <div class="status-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M14 9V5a3 3 0 0 0-3-3l-4 9v11h11.28a2 2 0 0 0 2-1.7l1.38-9a2 2 0 0 0-2-2.3zM7 22H4a2 2 0 0 1-2-2v-7a2 2 0 0 1 2-2h3"/></svg>
+                                </div>
+                                <span>Approved</span>
+                            </div>
+                            <div class="user-info">
+                                <h3>Rahique</h3>
+                                <div class="business-info">
+                                    <span>Nerd Lab</span>
+                                    <span>nerdlab@gmail.com</span>
+                                </div>
+                                <div class="documents">
+                                    <span class="doc-tag">Document One</span>
+                                    <span class="doc-tag">Document Two</span>
+                                    <span class="doc-tag">Document Three</span>
+                                </div>
+                            </div>
                         </div>
-                        <div class="customer-info">
-                            <h2>Rahique</h2>
-                            <div class="details">
-                                <p>Nerd Lab</p>
-                                <p>nerdlab@gmail.com</p>
-                            </div>
-                            <div class="document-list">
-                                <button class="document-pill">Document One</button>
-                                <button class="document-pill">Document Two</button>
-                                <button class="document-pill">Document Three</button>
-                            </div>
+                        <div class="card-actions">
+                            <button class="action-btn delete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6m4-6v6"/></svg>
+                            </button>
                         </div>
                     </div>
-                    <div class="action-buttons">
-                        <button class="action-btn delete">
-                            <i data-lucide="trash-2"></i>
-                        </button>
+                </div>
+
+                <!-- Denied Card -->
+                <div class="card">
+                    <div class="card-inner">
+                        <div class="card-content">
+                            <div class="status denied">
+                                <div class="status-icon">
+                                    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="4" stroke-linecap="round" stroke-linejoin="round"><path d="M10 15v4a3 3 0 0 0 3 3l4-9V2H5.72a2 2 0 0 0-2 1.7l-1.38 9a2 2 0 0 0 2 2.3zm7-13h2.67A2.31 2.31 0 0 1 22 4v7a2.31 2.31 0 0 1-2.33 2H17"/></svg>
+                                </div>
+                                <span>Denied</span>
+                            </div>
+                            <div class="user-info">
+                                <h3>Rahique</h3>
+                                <div class="business-info">
+                                    <span>Nerd Lab</span>
+                                    <span>nerdlab@gmail.com</span>
+                                </div>
+                                <div class="documents">
+                                    <span class="doc-tag">Document One</span>
+                                    <span class="doc-tag">Document Two</span>
+                                    <span class="doc-tag">Document Three</span>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="card-actions">
+                            <button class="action-btn delete">
+                                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M3 6h18m-2 0v14c0 1-1 2-2 2H7c-1 0-2-1-2-2V6m3 0V4c0-1 1-2 2-2h4c1 0 2 1 2 2v2"/><path d="M10 11v6m4-6v6"/></svg>
+                            </button>
+                        </div>
                     </div>
                 </div>
             </div>
-        </div>
+        </main>
     </div>
-    <script>
-        lucide.createIcons();
-    </script>
 </body>
 </html>
