@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Wholesale Customer Approval</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <script src="https://unpkg.com/lucide@latest"></script>
+</head>
+<body>
+    <div class="app">
+        <nav class="navbar">
+            <div class="logo">
+                <i data-lucide="box" class="logo-icon"></i>
+            </div>
+            <div class="content">
+                <div class="list">
+                    <button class="nav-button active">
+                        <i data-lucide="flame"></i>
+                        <span>Trending</span>
+                    </button>
+                    <button class="nav-button">
+                        <i data-lucide="list-check"></i>
+                        <span>New Listing</span>
+                    </button>
+                    <button class="nav-button">
+                        <i data-lucide="chevrons-down"></i>
+                        <span>Price Lowered</span>
+                    </button>
+                    <button class="nav-button">
+                        <i data-lucide="save"></i>
+                        <span>Watchlist</span>
+                    </button>
+                    <button class="nav-button">
+                        <i data-lucide="list-checks"></i>
+                        <span>Sold</span>
+                    </button>
+                    <button class="nav-button">
+                        <i data-lucide="file-clock"></i>
+                        <span>Order History</span>
+                    </button>
+                </div>
+                <div class="search">
+                    <button class="filter-btn">
+                        <i data-lucide="funnel"></i>
+                    </button>
+                    <div class="search-box">
+                        <i data-lucide="search"></i>
+                        <input type="text" placeholder="Search with name, model or UPC">
+                    </div>
+                </div>
+            </div>
+        </nav>
+        
+        <div class="content">
+            <!-- Pending Card -->
+            <div class="customer-card">
+                <div class="inner">
+                    <div class="info-section">
+                        <div class="status-badge pending">
+                            <i data-lucide="circle-dashed"></i>
+                            <span>Pending</span>
+                        </div>
+                        <div class="customer-info">
+                            <h2>Rahique</h2>
+                            <div class="details">
+                                <p>Nerd Lab</p>
+                                <p>nerdlab@gmail.com</p>
+                            </div>
+                            <div class="document-list">
+                                <button class="document-pill">Document One</button>
+                                <button class="document-pill">Document Two</button>
+                                <button class="document-pill">Document Three</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn approve">
+                            <i data-lucide="check"></i>
+                        </button>
+                        <button class="action-btn reject">
+                            <i data-lucide="ban"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Approved Card -->
+            <div class="customer-card">
+                <div class="inner">
+                    <div class="info-section">
+                        <div class="status-badge approved">
+                            <i data-lucide="thumbs-up"></i>
+                            <span>Approved</span>
+                        </div>
+                        <div class="customer-info">
+                            <h2>Rahique</h2>
+                            <div class="details">
+                                <p>Nerd Lab</p>
+                                <p>nerdlab@gmail.com</p>
+                            </div>
+                            <div class="document-list">
+                                <button class="document-pill">Document One</button>
+                                <button class="document-pill">Document Two</button>
+                                <button class="document-pill">Document Three</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn delete">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Denied Card -->
+            <div class="customer-card">
+                <div class="inner">
+                    <div class="info-section">
+                        <div class="status-badge denied">
+                            <i data-lucide="thumbs-down"></i>
+                            <span>Denied</span>
+                        </div>
+                        <div class="customer-info">
+                            <h2>Rahique</h2>
+                            <div class="details">
+                                <p>Nerd Lab</p>
+                                <p>nerdlab@gmail.com</p>
+                            </div>
+                            <div class="document-list">
+                                <button class="document-pill">Document One</button>
+                                <button class="document-pill">Document Two</button>
+                                <button class="document-pill">Document Three</button>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="action-buttons">
+                        <button class="action-btn delete">
+                            <i data-lucide="trash-2"></i>
+                        </button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        lucide.createIcons();
+    </script>
+</body>
+</html>

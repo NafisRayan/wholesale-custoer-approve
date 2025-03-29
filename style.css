@@ -1,0 +1,274 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    background-color: #100C26;
+    color: #FFFFFF;
+}
+
+.app {
+    padding: 0 64px;
+}
+
+/* Navbar Styles */
+.navbar {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 13px;
+    padding-top: 20px;
+    margin-bottom: 40px;
+}
+
+.navbar .logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.logo-icon {
+    color: #5533FF;
+    width: 32px;
+    height: 32px;
+}
+
+.navbar .content {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    width: 100%;
+}
+
+.list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.nav-button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 6px 8px;
+    border: none;
+    border-radius: 4px;
+    background: transparent;
+    color: #EEEBFF;
+    font-size: 12px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: background-color 0.2s;
+}
+
+.nav-button i {
+    width: 16px;
+    height: 16px;
+}
+
+.nav-button.active {
+    background: #5534FF;
+}
+
+.nav-button:not(.active) i {
+    color: #EEEBFF;
+}
+
+/* Search Section */
+.search {
+    display: flex;
+    gap: 8px;
+    align-items: center;
+}
+
+.filter-btn {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background: #5433FC;
+    border: none;
+    border-radius: 4px;
+    padding: 2px;
+    cursor: pointer;
+    width: 40px;
+    height: 40px;
+}
+
+.filter-btn i {
+    color: #FFFFFF;
+}
+
+.search-box {
+    display: flex;
+    gap: 13px;
+    padding: 12px 9px;
+    background: #130E2B;
+    border: 1px solid #5433FC;
+    border-radius: 4px;
+    width: 233px;
+}
+
+.search-box i {
+    color: #5433FC;
+}
+
+.search-box input {
+    background: transparent;
+    border: none;
+    color: #E8E8EC;
+    font-family: 'Plus Jakarta Sans', sans-serif;
+    font-size: 12px;
+    width: 100%;
+}
+
+.search-box input::placeholder {
+    color: #423C5F;
+}
+
+.search-box input:focus {
+    outline: none;
+}
+
+/* Content Area */
+.content {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+}
+
+/* Customer Card */
+.customer-card {
+    background: radial-gradient(circle at 0% 0%, #3E2B9E 0%, #1B143E 95%);
+    border: 1px solid #3B24B3;
+    border-radius: 8px;
+    padding: 5px;
+}
+
+.customer-card .inner {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 16px;
+    gap: 275px;
+}
+
+.info-section {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+/* Status Badge */
+.status-badge {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 8px;
+    border-radius: 4px;
+    gap: 4px;
+}
+
+.status-badge span {
+    font-size: 10px;
+    font-weight: 500;
+    color: #EEEBFF;
+}
+
+.status-badge.pending {
+    background: #FF894E;
+}
+
+.status-badge.approved {
+    background: #17AF65;
+}
+
+.status-badge.denied {
+    background: #E11220;
+}
+
+.status-badge i {
+    width: 20px;
+    height: 20px;
+    color: #FFFFFF;
+}
+
+/* Customer Info */
+.customer-info {
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    width: 331px;
+}
+
+.customer-info h2 {
+    font-size: 16px;
+    font-weight: 500;
+    color: #FFFFFF;
+}
+
+.details {
+    display: flex;
+    flex-direction: column;
+    gap: -3px;
+}
+
+.details p {
+    font-size: 12px;
+    font-weight: 500;
+    color: #B9ACFF;
+}
+
+/* Document List */
+.document-list {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    margin-top: 8px;
+}
+
+.document-pill {
+    background: #423C5F;
+    border: none;
+    border-radius: 8px;
+    padding: 6px 4px;
+    color: #E8E8EC;
+    font-size: 10px;
+    font-weight: 400;
+    cursor: pointer;
+}
+
+/* Action Buttons */
+.action-buttons {
+    display: flex;
+    gap: 8px;
+}
+
+.action-btn {
+    background: #5433FC;
+    border: none;
+    border-radius: 4px;
+    padding: 6px 8px;
+    cursor: pointer;
+    box-shadow: inset 0px 4px 12px rgba(255, 255, 255, 0.25);
+}
+
+.action-btn i {
+    width: 20px;
+    height: 20px;
+}
+
+.action-btn.approve i {
+    color: #21FA90;
+}
+
+.action-btn.reject i {
+    color: #FF894E;
+}
+
+.action-btn.delete i {
+    color: #E11220;
+}
