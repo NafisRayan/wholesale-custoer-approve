@@ -387,20 +387,23 @@ body {
 /* Action Buttons */
 .card-actions {
     display: flex;
-    align-items: center; /* Center icons vertically */
-    gap: 12px; /* Adjusted gap */
-    margin-left: auto; /* Push actions to the right */
+    align-items: center;
+    gap: clamp(8px, 2vw, 16px); /* Responsive gap */
+    margin-left: auto;
+    padding-left: clamp(12px, 2vw, 24px); /* Add responsive padding */
 }
 
 .action-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    background: none; /* Removed background */
+    background: none;
     border: none;
     cursor: pointer;
-    padding: 4px; /* Add some padding for click area */
-    transition: transform 0.2s ease-in-out; /* Simplified transition */
+    padding: clamp(4px, 1vw, 8px); /* Responsive padding */
+    min-width: 32px; /* Minimum touch target size */
+    min-height: 32px; /* Minimum touch target size */
+    transition: transform 0.2s ease-in-out;
 }
 
 .action-btn:hover {
@@ -512,14 +515,17 @@ body {
     }
     
     .card-actions {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(80px, 1fr));
-        gap: 12px;
+        display: flex;
+        justify-content: center;
+        width: 100%;
+        padding: clamp(8px, 2vw, 16px) 0 0; /* Add top padding */
+        margin: 0; /* Reset margin */
+        gap: clamp(16px, 4vw, 32px); /* Increased gap for mobile */
     }
     
     .action-btn {
-        width: 100%;
-        height: 44px;
+        flex: 0 1 auto; /* Allow buttons to shrink but not grow */
+        padding: clamp(8px, 2vw, 12px);
     }
 }
 
