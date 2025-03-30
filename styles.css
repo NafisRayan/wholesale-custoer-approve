@@ -109,7 +109,12 @@ body {
     align-items: center;
     gap: clamp(6px, 1vw, 8px);
     padding: 0 clamp(8px, 2vw, 16px);
+    height: 1px;
+    width: 1px;
+    margin-bottom: 40px;
+    margin-top: 40px;
 }
+
 
 .nav-content {
     display: flex;
