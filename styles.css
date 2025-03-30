@@ -55,6 +55,46 @@ body {
     flex-direction: column;
     gap: clamp(10px, 2vw, 13px);
     padding: clamp(12px, 2vw, 20px) 0;
+}
+
+.nav-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 clamp(8px, 2vw, 16px);
+}
+
+/* Menu Toggle Button */
+.menu-toggle {
+    display: none;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 30px;
+    height: 21px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+}
+
+.menu-toggle .bar {
+    width: 100%;
+    height: 2px;
+    background-color: var(--text-white);
+    transition: all 0.3s ease-in-out;
+}
+
+/* Menu Toggle Animation */
+.menu-toggle[aria-expanded="true"] .bar:first-child {
+    transform: translateY(9.5px) rotate(45deg);
+}
+
+.menu-toggle[aria-expanded="true"] .bar:nth-child(2) {
+    opacity: 0;
+}
+
+.menu-toggle[aria-expanded="true"] .bar:last-child {
+    transform: translateY(-9.5px) rotate(-45deg);
     position: sticky;
     top: 0;
     background-color: var(--primary-bg);
@@ -461,6 +501,25 @@ body {
 }
 
 @media (max-width: 480px) {
+    .menu-toggle {
+        display: flex;
+    }
+
+    .nav-content {
+        display: none;
+        width: 100%;
+    }
+
+    .nav-content.active {
+        display: flex;
+    }
+
+    .nav-list {
+        flex-direction: column;
+        width: 100%;
+        gap: 8px;
+    }
+
     .nav-btn {
         width: 100%;
         justify-content: center;
