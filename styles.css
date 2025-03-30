@@ -272,16 +272,17 @@ body {
 
 .card-inner {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    /* justify-content: space-between; Let content flex */
+    align-items: stretch; /* Make items full height */
     padding: 16px;
     gap: 16px;
 }
 
 .card-content {
     display: flex;
-    align-items: center;
+    align-items: stretch; /* Make status and user-info full height */
     gap: 12px;
+    flex: 1; /* Allow content to take available space */
 }
 
 /* Status Styles */
@@ -290,15 +291,21 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 4px;
-    padding: 8px;
+    gap: 8px; /* Increased gap */
+    padding: 16px; /* Uniform padding */
     border-radius: 4px;
-    width: 48px;
+    /* width: 48px; Removed fixed width */
+    /* Removed vertical padding only */
 }
 
 .status-icon {
-    width: 24px;
-    height: 24px;
+    width: 32px; /* Adjusted icon size */
+    height: 32px; /* Adjusted icon size */
+}
+
+.status svg {
+    width: 32px; /* Adjusted icon size */
+    height: 32px; /* Adjusted icon size */
 }
 
 .status span {
@@ -319,10 +326,7 @@ body {
     background-color: var(--denied-color);
 }
 
-.status svg {
-    width: 24px;
-    height: 24px;
-}
+
 
 /* User Info Styles */
 .user-info {
@@ -331,6 +335,8 @@ body {
     gap: 4px;
     flex: 1;
     min-width: 0;
+    padding: 0 0 0 16px; /* Add padding left, remove vertical */
+    justify-content: center; /* Vertically center content */
 }
 
 .user-info h3 {
