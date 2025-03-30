@@ -272,16 +272,15 @@ body {
 
 .card-inner {
     display: flex;
-    /* justify-content: space-between; Let content flex */
-    align-items: stretch; /* Make items full height */
+    align-items: center; /* Vertically center items */
     padding: 16px;
     gap: 16px;
 }
 
 .card-content {
     display: flex;
-    align-items: stretch; /* Make status and user-info full height */
-    gap: 12px;
+    align-items: center; /* Vertically center status and user-info */
+    gap: 16px; /* Increased gap to match image */
     flex: 1; /* Allow content to take available space */
 }
 
@@ -291,21 +290,22 @@ body {
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: 8px; /* Increased gap */
-    padding: 16px; /* Uniform padding */
-    border-radius: 4px;
-    /* width: 48px; Removed fixed width */
-    /* Removed vertical padding only */
+    gap: 4px; /* Decreased gap */
+    padding: 12px; /* Adjusted padding */
+    border-radius: 8px; /* Increased border-radius */
+    width: 80px; /* Added fixed width */
+    height: 100px; /* Increased height */
+    flex-shrink: 0; /* Prevent shrinking */
 }
 
 .status-icon {
-    width: 32px; /* Adjusted icon size */
-    height: 32px; /* Adjusted icon size */
+    width: 24px; /* Adjusted icon size */
+    height: 24px; /* Adjusted icon size */
 }
 
 .status svg {
-    width: 32px; /* Adjusted icon size */
-    height: 32px; /* Adjusted icon size */
+    width: 24px; /* Adjusted icon size */
+    height: 24px; /* Adjusted icon size */
 }
 
 .status span {
@@ -335,7 +335,7 @@ body {
     gap: 4px;
     flex: 1;
     min-width: 0;
-    padding: 0 0 0 16px; /* Add padding left, remove vertical */
+    /* padding: 0 0 0 16px; Removed padding */
     justify-content: center; /* Vertically center content */
 }
 
@@ -367,8 +367,8 @@ body {
     background-color: var(--doc-tag-bg);
     color: #E8E8EC;
     font-size: 10px;
-    padding: 6px 4px;
-    border-radius: 8px;
+    padding: 4px 12px; /* Adjusted padding */
+    border-radius: 16px; /* Increased border-radius for pill shape */
     text-decoration: none;
     display: inline-block;
     cursor: pointer;
@@ -387,21 +387,20 @@ body {
 /* Action Buttons */
 .card-actions {
     display: flex;
-    gap: 8px;
+    align-items: center; /* Center icons vertically */
+    gap: 12px; /* Adjusted gap */
+    margin-left: auto; /* Push actions to the right */
 }
 
 .action-btn {
     display: flex;
     justify-content: center;
     align-items: center;
-    width: 36px;
-    height: 36px;
-    background-color: var(--btn-secondary);
+    background: none; /* Removed background */
     border: none;
-    border-radius: 4px;
     cursor: pointer;
-    box-shadow: inset 0px 4px 12px rgba(255, 255, 255, 0.25);
-    transition: all 0.2s ease-in-out;
+    padding: 4px; /* Add some padding for click area */
+    transition: transform 0.2s ease-in-out; /* Simplified transition */
 }
 
 .action-btn:hover {
@@ -414,8 +413,8 @@ body {
 }
 
 .action-btn svg {
-    width: 16px;
-    height: 16px;
+    width: 24px; /* Increased icon size */
+    height: 24px; /* Increased icon size */
 }
 
 .action-btn.approve svg {
