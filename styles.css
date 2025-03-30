@@ -54,39 +54,46 @@ body {
     display: flex;
     flex-direction: column;
     gap: clamp(10px, 2vw, 13px);
-    padding-top: clamp(16px, 2vw, 20px);
+    padding: clamp(12px, 2vw, 20px) 0;
     position: sticky;
     top: 0;
     background-color: var(--primary-bg);
     z-index: 100;
     backdrop-filter: blur(10px);
     contain: layout style paint;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
 }
 
 .logo {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: clamp(6px, 1vw, 8px);
+    padding: 0 clamp(8px, 2vw, 16px);
 }
 
 .nav-content {
     display: flex;
-    justify-content: space-between;
-    align-items: center;
+    flex-wrap: wrap;
+    gap: clamp(16px, 3vw, 24px);
     width: 100%;
+    padding: 0 clamp(8px, 2vw, 16px);
 }
 
 .nav-list {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
-    gap: 8px;
+    gap: clamp(4px, 1vw, 8px);
+    flex: 1;
 }
 
 .nav-btn {
-    display: flex;
+    display: inline-flex;
     align-items: center;
+    justify-content: center;
     gap: 8px;
-    padding: 8px 12px;
+    padding: clamp(8px, 1.5vw, 12px);
+    min-height: 44px;
     background: none;
     border: none;
     color: var(--text-light);
@@ -94,17 +101,21 @@ body {
     font-weight: 500;
     cursor: pointer;
     border-radius: 4px;
-    transition: all 0.2s ease-in-out;
+    transition: all 0.2s ease;
     white-space: nowrap;
+    touch-action: manipulation;
+    -webkit-tap-highlight-color: transparent;
 }
 
 .nav-btn img {
-    width: 16px;
-    height: 16px;
+    width: clamp(16px, 1.5vw, 20px);
+    height: clamp(16px, 1.5vw, 20px);
+    flex-shrink: 0;
 }
 
 .nav-btn.active {
     background-color: var(--btn-active);
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 .nav-btn:not(.active):hover {
@@ -114,14 +125,16 @@ body {
 
 .nav-btn:active {
     transform: translateY(1px);
+    transition: transform 0.1s;
 }
 
 /* Search Styles */
 .search {
     display: flex;
-    gap: 8px;
-    width: clamp(280px, 30vw, 400px);
-    margin-left: auto;
+    gap: clamp(6px, 1vw, 8px);
+    width: clamp(280px, 100%, 400px);
+    margin: 0;
+    flex-shrink: 0;
 }
 
 .filter-btn {
@@ -130,12 +143,14 @@ body {
     align-items: center;
     background-color: var(--btn-secondary);
     border: none;
-    padding: 2px;
+    padding: clamp(2px, 0.5vw, 4px);
     border-radius: 4px;
     cursor: pointer;
-    width: 40px;
-    height: 40px;
-    transition: all 0.2s ease-in-out;
+    width: 44px;
+    height: 44px;
+    transition: all 0.2s ease;
+    flex-shrink: 0;
+    touch-action: manipulation;
 }
 
 .filter-btn:hover {
@@ -150,12 +165,18 @@ body {
 .search-input {
     display: flex;
     align-items: center;
-    gap: 13px;
-    padding: 12px 9px;
+    gap: clamp(8px, 1.5vw, 13px);
+    padding: clamp(10px, 1.5vw, 12px) clamp(8px, 1vw, 9px);
     background-color: var(--input-bg);
     border: 1px solid var(--btn-secondary);
     border-radius: 4px;
     flex: 1;
+    min-width: 0;
+    transition: border-color 0.2s ease;
+}
+
+.search-input:focus-within {
+    border-color: var(--btn-active);
 }
 
 .search-input img {
@@ -371,20 +392,31 @@ body {
 @media (max-width: 1200px) {
     .nav-content {
         flex-direction: column;
-        gap: 16px;
         align-items: stretch;
     }
-    
+
     .nav-list {
-        flex-wrap: wrap;
+        order: 1;
         justify-content: flex-start;
-        gap: 12px;
+        margin: 0 calc(clamp(8px, 2vw, 16px) * -1);
+        padding: 0 clamp(8px, 2vw, 16px);
+        overflow-x: auto;
+        scrollbar-width: none;
+        -ms-overflow-style: none;
+        scroll-snap-type: x mandatory;
     }
-    
+
+    .nav-list::-webkit-scrollbar {
+        display: none;
+    }
+
+    .nav-btn {
+        scroll-snap-align: start;
+    }
+
     .search {
+        order: 0;
         width: 100%;
-        max-width: none;
-        margin: 0;
     }
 }
 
