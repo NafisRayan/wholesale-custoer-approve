@@ -363,6 +363,19 @@ body {
     font-size: 10px;
     padding: 6px 4px;
     border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: background-color 0.2s ease, transform 0.2s ease;
+}
+
+.doc-tag:hover {
+    background-color: var(--btn-secondary);
+    transform: translateY(-1px);
+}
+
+.doc-tag:active {
+    transform: translateY(1px);
 }
 
 /* Action Buttons */

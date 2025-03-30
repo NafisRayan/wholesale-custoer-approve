@@ -1,0 +1,242 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Document Viewer">
+    <meta name="theme-color" content="#100C26">
+    <title>Document Viewer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    <style>
+        :root {
+            --primary-bg: #100C26;
+            --card-bg: #3E2B9E;
+            --card-border: #3B24B3;
+            --text-white: #FFFFFF;
+            --text-light: #EEEBFF;
+            --text-purple: #B9ACFF;
+            --btn-active: #5534FF;
+            --btn-secondary: #5433FC;
+            --doc-tag-bg: #423C5F;
+        }
+
+        .document-viewer {
+            max-width: 900px;
+            margin: 2rem auto;
+            padding: 2rem;
+            background: var(--card-bg);
+            border: 1px solid var(--card-border);
+            border-radius: 12px;
+            box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
+            color: var(--text-white);
+        }
+
+        .document-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 2rem;
+            padding-bottom: 1.5rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+            gap: 1rem;
+        }
+
+        .header-left {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .header-actions {
+            display: flex;
+            gap: 1rem;
+        }
+
+        .document-title {
+            font-size: 1.75rem;
+            color: var(--text-white);
+            margin: 0;
+            font-weight: 500;
+        }
+
+        .btn {
+            padding: 0.75rem 1.25rem;
+            border-radius: 6px;
+            color: var(--text-white);
+            text-decoration: none;
+            font-size: 0.875rem;
+            transition: all 0.2s ease;
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            border: none;
+            cursor: pointer;
+            background-color: var(--btn-secondary);
+        }
+
+        .btn svg {
+            width: 18px;
+            height: 18px;
+            stroke: currentColor;
+        }
+
+        .btn:hover {
+            background-color: var(--btn-active);
+            transform: translateY(-1px);
+        }
+
+        .btn:active {
+            transform: translateY(1px);
+        }
+
+        .btn.back-button {
+            background-color: var(--doc-tag-bg);
+        }
+
+        .btn.download-button {
+            background-color: var(--btn-secondary);
+        }
+
+        .document-content {
+            background: rgba(255, 255, 255, 0.05);
+            padding: 2rem;
+            border-radius: 8px;
+            line-height: 1.6;
+            margin-bottom: 2rem;
+        }
+
+        .document-meta {
+            background: rgba(0, 0, 0, 0.2);
+            padding: 1.5rem;
+            border-radius: 8px;
+            color: var(--text-light);
+            font-size: 0.875rem;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+        }
+
+        .document-meta p {
+            display: flex;
+            gap: 0.5rem;
+            align-items: center;
+        }
+
+        .document-meta svg {
+            width: 16px;
+            height: 16px;
+            stroke: var(--text-purple);
+        }
+
+        @media (max-width: 768px) {
+            .document-viewer {
+                margin: 1rem;
+                padding: 1.5rem;
+            }
+
+            .document-header {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 1rem;
+            }
+
+            .header-actions {
+                width: 100%;
+                justify-content: space-between;
+            }
+
+            .btn {
+                flex: 1;
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="app">
+        <div class="document-viewer">
+            <div class="document-header">
+                <div class="header-left">
+                    <a href="index.html" class="btn back-button">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M19 12H5M12 19l-7-7 7-7"/>
+                        </svg>
+                        Back
+                    </a>
+                    <h1 class="document-title" id="documentTitle">Document Title</h1>
+                </div>
+                <div class="header-actions">
+                    <button class="btn download-button" onclick="downloadDocument()">
+                        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M21 15v4a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2v-4M7 10l5 5 5-5M12 15V3"/>
+                        </svg>
+                        Download
+                    </button>
+                </div>
+            </div>
+            <div class="document-content" id="documentContent">
+                Loading document...
+            </div>
+            <div class="document-meta" id="documentMeta">
+                
+            </div>
+        </div>
+    </div>
+    <script>
+        function downloadDocument() {
+            const docName = new URLSearchParams(window.location.search).get('doc');
+            if (!docName) return;
+            
+            // Create a dummy PDF file for demonstration
+            const blob = new Blob(['Sample document content'], { type: 'application/pdf' });
+            const url = window.URL.createObjectURL(blob);
+            const a = document.createElement('a');
+            a.href = url;
+            a.download = `${decodeURIComponent(docName)}.pdf`;
+            document.body.appendChild(a);
+            a.click();
+            window.URL.revokeObjectURL(url);
+            document.body.removeChild(a);
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            const params = new URLSearchParams(window.location.search);
+            const docName = params.get('doc');
+            const userId = params.get('user');
+
+            if (docName) {
+                document.getElementById('documentTitle').textContent = decodeURIComponent(docName);
+                document.getElementById('documentContent').innerHTML = `
+                    <p>This is the content for ${decodeURIComponent(docName)}.</p>
+                    <p>Document details and content would be loaded here based on the document identifier.</p>
+                `;
+                if (userId) {
+                    document.getElementById('documentMeta').innerHTML = `
+                        <p>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"/>
+                                <circle cx="12" cy="7" r="4"/>
+                            </svg>
+                            Uploaded by: ${decodeURIComponent(userId)}
+                        </p>
+                        <p>
+                            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                                <rect x="3" y="4" width="18" height="18" rx="2" ry="2"/>
+                                <line x1="16" y1="2" x2="16" y2="6"/>
+                                <line x1="8" y1="2" x2="8" y2="6"/>
+                                <line x1="3" y1="10" x2="21" y2="10"/>
+                            </svg>
+                            Upload Date: ${new Date().toLocaleDateString()}
+                        </p>
+                    `;
+                }
+            } else {
+                document.getElementById('documentContent').innerHTML = 'Document not found.';
+            }
+        });
+    </script>
+</body>
+</html>
